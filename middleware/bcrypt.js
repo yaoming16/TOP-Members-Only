@@ -1,9 +1,9 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const LocalStrategy = require("passport-local").Strategy;
 const { getUserByUsername, getUserById } = require("../db/queries");
 
 //Tries to find user in the DB
-async function localStrategy() {
+function localStrategy() {
   return new LocalStrategy(async (username, password, done) => {
     try {
       const user = await getUserByUsername(username);
@@ -22,7 +22,7 @@ async function localStrategy() {
   });
 }
 
-async function serializeUser(user, done) {
+function serializeUser(user, done) {
   done(null, user.id);
 }
 
