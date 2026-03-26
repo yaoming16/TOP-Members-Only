@@ -4,22 +4,29 @@ const { getUserByUsername, getUserById } = require("../db/queries");
 
 //Tries to find user in the DB
 function localStrategy() {
-  return new LocalStrategy(async (username, password, done) => {
-    try {
-      const user = await getUserByUsername(username);
-      if (!user) {
-        return done(null, false, { message: "Incorrect username" });
+  return new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+
+    async (email, password, done) => {
+      try {
+        const user = await getUserByUsername(email);
+        if (!user) {
+          return done(null, false, { message: "Incorrect email" });
+        }
+        const match = await bcrypt.compare(password, user.password);
+        if (!match) {
+          // passwords do not match!
+          return done(null, false, { message: "Incorrect password" });
+        }
+        return done(null, user);
+      } catch (err) {
+        return done(err);
       }
-      const match = await bcrypt.compare(password, user.password);
-      if (!match) {
-        // passwords do not match!
-        return done(null, false, { message: "Incorrect password" });
-      }
-      return done(null, user);
-    } catch (err) {
-      return done(err);
-    }
-  });
+    },
+  );
 }
 
 function serializeUser(user, done) {

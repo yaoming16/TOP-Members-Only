@@ -1,8 +1,8 @@
 const pool = require("../db/pool");
 
-async function getUserByUsername(username) {
-  const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
-    username,
+async function getUserByUsername(email) {
+  const { rows } = await pool.query("SELECT * FROM users WHERE email = $1", [
+    email,
   ]);
   return rows[0];
 }
