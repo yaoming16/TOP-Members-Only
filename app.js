@@ -10,6 +10,8 @@ const session = require("express-session");
 const passport = require("passport");
 
 const signUpRouter = require("./routers/signUpRouter");
+const loginRouter = require("./routers/loginRouter");
+
 const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -30,7 +32,17 @@ passport.deserializeUser(async (id, done) => {
   await deserializeUser(id, done);
 });
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 app.use("/signup", signUpRouter);
+app.use("/login", loginRouter);
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.listen(3000, (error) => {
   if (error) {
