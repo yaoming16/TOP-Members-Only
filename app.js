@@ -12,6 +12,7 @@ const passport = require("passport");
 const signUpRouter = require("./routers/signUpRouter");
 const loginRouter = require("./routers/loginRouter");
 const messagesRouter = require("./routers/messagesRouter");
+const statusRouter = require("./routers/statusRouter");
 
 const app = express();
 app.set("views", path.join(__dirname, "views"));
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 app.use("/signup", signUpRouter);
 app.use("/login", loginRouter);
 app.use("/messages", messagesRouter);
+app.use("/status", statusRouter);
 
 app.get("/", (req, res) => {
   res.render("index");
