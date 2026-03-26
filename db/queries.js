@@ -21,8 +21,27 @@ async function createUser(userData) {
   return rows[0];
 }
 
+async function getAllMessages() {
+  const {rows} = await pool.query(`
+  SELECT
+    m.title,
+    m.creation_date,
+    m.message,
+    u.name,
+    u.last_name,
+    u.email,
+    u.password,
+    u.member,
+    u.admin
+  FROM messages AS m
+  INNER JOIN users_messages AS um ON um.message_id = m.id 
+  INNER JOIN users AS u ON u.id = um.user_id;`)
+return rows;
+}
+
 module.exports = {
   getUserByUsername,
   getUserById,
   createUser,
+  getAllMessages,
 };

@@ -1,0 +1,8 @@
+<article>
+  <h2><%= message.title %></h2>
+  <p><%= message.message %></p>
+  <% if (locals.currentUser && locals.currentUser.member) { %>
+    <p><%= new Date(message.creation_date).toLocaleTimeString() %></p>
+    <p><%= `${locals.currentUser.name} ${locals.currentUser.last_name}` %></p>
+  <% } %>
+</article>
