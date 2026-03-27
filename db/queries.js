@@ -53,10 +53,40 @@ async function updateMemberStatus(column, newStatus, memberEmail) {
   );
 }
 
+async function deleteMessage(messageID) {
+  const client = await pool.connect();
+
+  try {
+    await client.query("BEGIN");
+
+    //Delete row from message table with id messageID
+    await client.query(
+      `DELETE FROM messages
+      WHERE id = $1`,
+      [messageID],
+    );
+
+    //Delete row from users_messages with message_id messageID
+    await client.query(
+      `DELETE FROM users_messages
+      WHERE message_id = $1`,
+      [messageID],
+    );
+
+    await client.query("COMMIT");
+  } catch (err) {
+    await client.query("ROLLBACK");
+    throw err;
+  } finally {
+    client.release();
+  }
+}
+
 module.exports = {
   getUserByUsername,
   getUserById,
   createUser,
   getAllMessages,
   updateMemberStatus,
+  deleteMessage,
 };
