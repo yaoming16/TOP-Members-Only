@@ -1,0 +1,22 @@
+<% 
+const user = locals.currentUser;
+const loginHref = !user? "/login" : "/status";
+const loginHrefText = !user? "Log in" : "Status";
+
+const signupHref = !user? "/signup" : "/logout";
+const signupHrefText = !user? "Sign Up" : "Log Out";
+%>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/">Messages</a>
+    </li>
+    <li>
+      <a href="<%= loginHref %>"><%= loginHrefText %></a>
+    </li>
+    <li>
+      <a href="/logout">Log out</a>
+    </li>
+  </ul>
+</nav>
