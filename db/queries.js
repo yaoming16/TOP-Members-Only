@@ -22,7 +22,7 @@ async function createUser(userData) {
 }
 
 async function getAllMessages() {
-  const {rows} = await pool.query(`
+  const { rows } = await pool.query(`
   SELECT
     m.title,
     m.creation_date,
@@ -35,8 +35,22 @@ async function getAllMessages() {
     u.admin
   FROM messages AS m
   INNER JOIN users_messages AS um ON um.message_id = m.id 
-  INNER JOIN users AS u ON u.id = um.user_id;`)
-return rows;
+  INNER JOIN users AS u ON u.id = um.user_id;`);
+  return rows;
+}
+
+async function updateMemberStatus(column, newStatus, memberEmail) {
+  // Ensure the column name is safe to prevent SQL injection
+  const safeColumn = column === "admin" ? "admin" : "member";
+
+  await pool.query(
+    `
+    UPDATE users 
+    SET ${safeColumn} = $1
+    WHERE email = $2 
+    `,
+    [newStatus, memberEmail],
+  );
 }
 
 module.exports = {
@@ -44,4 +58,5 @@ module.exports = {
   getUserById,
   createUser,
   getAllMessages,
+  updateMemberStatus,
 };
