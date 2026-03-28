@@ -48,6 +48,15 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.post("/logout", (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.status(200).json({ msg: "Logged out correctly" });
+  });
+});
+
 app.listen(3000, (error) => {
   if (error) {
     throw error;

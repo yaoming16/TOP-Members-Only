@@ -10,13 +10,16 @@ const signupHrefText = !user? "Sign Up" : "Log Out";
 <nav>
   <ul>
     <li>
-      <a href="/">Messages</a>
+      <a href="/">Homepage</a>
+    </li>
+    <li>
+      <a href="/messages">Messages</a>
     </li>
     <li>
       <a href="<%= loginHref %>"><%= loginHrefText %></a>
     </li>
     <li>
-      <a href="/logout">Log out</a>
+      <a href="/logout" id="logoutBtn">Log out</a>
     </li>
   </ul>
 </nav>
