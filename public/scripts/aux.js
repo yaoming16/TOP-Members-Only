@@ -2,17 +2,17 @@ export async function sendFormData(event, fetchUrl, method, redirectUrl) {
   const formData = new FormData(event.target);
   const body = new URLSearchParams(formData);
 
-  await fetch(fetchUrl, method, redirectUrl, body)
+  await customFetch(fetchUrl, method, redirectUrl, body);
 }
 
-export async function fetch(fetchUrl, method, redirectUrl, body = null) {
-    try {
+export async function customFetch(fetchUrl, method, redirectUrl, body = null) {
+  try {
     const response = await fetch(fetchUrl, {
       method: method,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       },
-      body
+      body,
     });
 
     if (response.ok) {

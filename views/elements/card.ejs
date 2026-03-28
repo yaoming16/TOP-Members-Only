@@ -1,13 +1,15 @@
-<% const user = locals.currentUser %>
+<% const user = locals.currentUser 
+%>
 
 <article>
   <h2><%= message.title %></h2>
   <p><%= message.message %></p>
-  <% if (user && user.member) { %>
+  <% if (user) { %>
+  <% if (user.member) { %>
   <p><%= new Date(message.creation_date).toLocaleTimeString() %></p>
   <p><%= `${message.name} ${message.last_name}` %></p>
   <% if (message.member) { %>
-  <p><%= Member %></p>
+  <p>Member</p>
   <%  } else if (message.admin) { %>
   <p>Admin</p>
   <% }  else { %>
@@ -15,6 +17,8 @@
   <%}%>
   <% } %>
   <% if (user.admin) { %>
-    <button class="deleteBtn" id="<%= message.id %>">Delete</button>
+  <button class="deleteBtn" id="<%= message.id %>">Delete</button>
   <% } %>
+
+  <%}%>
 </article>

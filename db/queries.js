@@ -21,9 +21,42 @@ async function createUser(userData) {
   return rows[0];
 }
 
+async function createMessage(messageInfo) {
+  const { title, date, message, userId } = messageInfo;
+  const client = await pool.connect();
+
+  try {
+    await client.query("BEGIN");
+
+    //Add new message to messages table. We return the id of the created row
+    const { rows } = await client.query(
+      `
+      INSERT INTO messages (title, creation_date, message) VALUES ($1, $2, $3) RETURNING id;
+      `,
+      [title, date, message],
+    );
+    const newMessageId = rows[0].id;
+    //Add the relation of the message with the user that created it.
+    await client.query(
+      `
+      INSERT INTO users_messages (message_id, user_id) VALUES ($1, $2);
+      `,
+      [newMessageId, userId],
+    );
+
+    await client.query("COMMIT");
+  } catch (err) {
+    await client.query("ROLLBACK");
+    throw err;
+  } finally {
+    client.release();
+  }
+}
+
 async function getAllMessages() {
   const { rows } = await pool.query(`
   SELECT
+    m.id,
     m.title,
     m.creation_date,
     m.message,
@@ -59,17 +92,17 @@ async function deleteMessage(messageID) {
   try {
     await client.query("BEGIN");
 
+    //Delete row from users_messages with message_id messageID
+    await client.query(
+      `DELETE FROM users_messages
+          WHERE message_id = $1`,
+      [messageID],
+    );
+
     //Delete row from message table with id messageID
     await client.query(
       `DELETE FROM messages
       WHERE id = $1`,
-      [messageID],
-    );
-
-    //Delete row from users_messages with message_id messageID
-    await client.query(
-      `DELETE FROM users_messages
-      WHERE message_id = $1`,
       [messageID],
     );
 
@@ -89,4 +122,5 @@ module.exports = {
   getAllMessages,
   updateMemberStatus,
   deleteMessage,
+  createMessage,
 };
