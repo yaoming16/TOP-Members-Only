@@ -1,0 +1,51 @@
+:root {
+  /* The Latin Quarter palette (warm, colorful, nostalgic) */
+  --background: #f8f1dd;
+  --surface: #b8d9c7;
+  --surfaceAlt: #8ecae6;
+
+  --textPrimary: #2d3548;
+  --textMuted: #1c2433;
+  --heading: #3a86a8;
+
+  --navBg: #5f7d55;
+  --navText: #f8f1dd;
+
+  --mainBtn: #efa36a;
+  --mainBtnHover: #db7d67;
+  --mainBtnText: #1c2433;
+
+  --secondaryBtn: #7aa27a;
+  --secondaryBtnHover: #3a86a8;
+  --secondaryBtnText: #f8f1dd;
+
+  --cardBg: #ffffff;
+  --cardBorder: #caa24d;
+  --accent: #cc6a86;
+  --accentSoft: #9c8cc7;
+  --highlight: #f2c66d;
+  --warning: #a95f46;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* nav bar */
+
+nav {
+  background-color: var(--navBg);
+}
+
+.navContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+
+.navUl {
+
+}

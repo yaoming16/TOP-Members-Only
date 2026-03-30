@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/scripts/logout.js" type="module" defer></script>
-    <title>Members Only</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>The Latin Quarter</title>
   </head>
   <%- include("./elements/nav.ejs") %>
   <body>
-    <h1>Welcome to the Members Only</h1>
+    <h1>The Latin Quarter</h1>
     <% if(locals.currentUser) { %>
     <p><%= locals.currentUser.email %></p>
     <%} else {%>
