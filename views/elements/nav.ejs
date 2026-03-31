@@ -7,24 +7,26 @@ const signupHref = !user? "/signup" : "/logout";
 const signupHrefText = !user? "Sign Up" : "Log Out";
 %>
 
-<nav class="navContainer">
-  <h2>The Latin Quarter</h2>
-  <ul class="navContainer navUl">
-    <li>
-      <a href="/">Homepage</a>
-    </li>
-    <li>
-      <a href="/messages">Messages</a>
-    </li>
-    <li>
-      <a href="<%= loginHref %>"><%= loginHrefText %></a>
-    </li>
-    <li>
-      <% if (user) { %>
-      <a href="/logout" id="logoutBtn">Log out</a>
-      <% } else { %>
-      <a href="/signup">Sign up</a>
-      <%} %>
-    </li>
-  </ul>
+<nav>
+  <div class="navContainer">
+    <h2>The Latin Quarter</h2>
+    <ul class="navContainer">
+      <li>
+        <a href="/">Homepage</a>
+      </li>
+      <li>
+        <a href="/messages">Messages</a>
+      </li>
+      <li>
+        <a href="<%= loginHref %>"><%= loginHrefText %></a>
+      </li>
+      <li>
+        <% if (user) { %>
+        <a href="/logout" id="logoutBtn">Log out</a>
+        <% } else { %>
+        <a href="/signup">Sign up</a>
+        <%} %>
+      </li>
+    </ul>
+  </div>
 </nav>

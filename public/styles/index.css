@@ -37,15 +37,37 @@
 
 nav {
   background-color: var(--navBg);
+  color: var(--navText);
+  padding: 0.5rem 0.7rem;
 }
 
 .navContainer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.navUl {
+nav ul {
+  list-style: none;
+}
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+nav ul li {
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li:hover {
+  border-radius: 5px;
+  background-color: var(--navText);
+  color: var(--navBg);
 }
