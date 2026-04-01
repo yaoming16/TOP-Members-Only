@@ -1,0 +1,45 @@
+.center {
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loginForm {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  border: 1px solid var(--cardBorder);
+  border-radius: 4px;
+  background-color: var(--cardBg);
+}
+
+.inputDiv {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bigBtn {
+  display: block;
+  width: 80%;
+  margin: 1rem auto;
+  transition: all 0.2s ease;
+}
+
+.bigBtn:focus,
+.bigBtn:hover {
+  outline: 2px solid var(--mainBtnHover);
+  outline-offset: 2px;
+  border-color: var(--mainBtnHover);
+  transform: scale(1.05);
+}

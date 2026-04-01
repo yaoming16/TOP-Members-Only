@@ -1,29 +1,29 @@
 :root {
-  --background: #f0f7fa;
-  --surface: #cce3de;
-  --surfaceAlt: #a2d2ff;
+  --background: #fdfaf6;
+  --surface: #e6eed6;
+  --surfaceAlt: #cbe0d3;
 
-  --textPrimary: #2b3a4a;
-  --textMuted: #5c6b73;
-  --heading: #023e8a;
+  --textPrimary: #3a403d;
+  --textMuted: #727a76;
+  --heading: #2c5545;
 
-  --navBg: #62a8cf;
+  --navBg: #799a9c;
   --navText: #ffffff;
 
-  --mainBtn: #ffd166;
-  --mainBtnHover: #ffb703;
-  --mainBtnText: #023047;
+  --mainBtn: #e58f65;
+  --mainBtnHover: #d4784e;
+  --mainBtnText: #ffffff;
 
-  --secondaryBtn: #95d5b2;
-  --secondaryBtnHover: #74c69d;
-  --secondaryBtnText: #023047;
+  --secondaryBtn: #e9c46a;
+  --secondaryBtnHover: #d9b150;
+  --secondaryBtnText: #2b2b2b;
 
   --cardBg: #ffffff;
-  --cardBorder: #bde0fe;
-  --accent: #ef476f;
-  --accentSoft: #ffc2d1;
-  --highlight: #fdfcdc;
-  --warning: #e07a5f;
+  --cardBorder: #d5e5e3;
+  --accent: #d96c75;
+  --accentSoft: #f5d3d6;
+  --highlight: #fefae0;
+  --warning: #d95d39;
 }
 
 * {
@@ -35,6 +35,59 @@
 body {
   background-color: var(--background);
   color: var(--textPrimary);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--heading);
+}
+
+/* Form elements */
+
+input {
+  border: 1px solid var(--cardBorder);
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--textPrimary);
+  background-color: var(--cardBg);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--mainBtn);
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--mainBtn);
+  color: var(--mainBtnText);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--mainBtnHover);
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+label {
+  color: var(--textPrimary);
+  margin-bottom: 0.3rem;
 }
 
 /* nav bar */
