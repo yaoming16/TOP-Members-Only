@@ -1,36 +1,40 @@
 :root {
-  /* The Latin Quarter palette (warm, colorful, nostalgic) */
-  --background: #f8f1dd;
-  --surface: #b8d9c7;
-  --surfaceAlt: #8ecae6;
+  --background: #f0f7fa;
+  --surface: #cce3de;
+  --surfaceAlt: #a2d2ff;
 
-  --textPrimary: #2d3548;
-  --textMuted: #1c2433;
-  --heading: #3a86a8;
+  --textPrimary: #2b3a4a;
+  --textMuted: #5c6b73;
+  --heading: #023e8a;
 
-  --navBg: #5f7d55;
-  --navText: #f8f1dd;
+  --navBg: #62a8cf;
+  --navText: #ffffff;
 
-  --mainBtn: #efa36a;
-  --mainBtnHover: #db7d67;
-  --mainBtnText: #1c2433;
+  --mainBtn: #ffd166;
+  --mainBtnHover: #ffb703;
+  --mainBtnText: #023047;
 
-  --secondaryBtn: #7aa27a;
-  --secondaryBtnHover: #3a86a8;
-  --secondaryBtnText: #f8f1dd;
+  --secondaryBtn: #95d5b2;
+  --secondaryBtnHover: #74c69d;
+  --secondaryBtnText: #023047;
 
   --cardBg: #ffffff;
-  --cardBorder: #caa24d;
-  --accent: #cc6a86;
-  --accentSoft: #9c8cc7;
-  --highlight: #f2c66d;
-  --warning: #a95f46;
+  --cardBorder: #bde0fe;
+  --accent: #ef476f;
+  --accentSoft: #ffc2d1;
+  --highlight: #fdfcdc;
+  --warning: #e07a5f;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--textPrimary);
 }
 
 /* nav bar */
