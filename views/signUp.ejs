@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/form.css" />
     <script src="/scripts/signUp.js" type="module" defer></script>
     <script src="/scripts/logout.js" type="module" defer></script>
     <title>The Latin Quarter - Sign Up</title>
@@ -11,34 +12,41 @@
   <body>
     <%- include("./elements/nav.ejs") %>
     <main>
-      <h1>Sign Up</h1>
-      <form id="signup-form">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" required />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <div>
-          <label for="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            required
-          />
-        </div>
-        <button type="submit">Sign Up</button>
+      <div class="container">
+        <h1>The Latin Quarter</h1>
+        <form id="signup-form">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <div class="inputDiv">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="inputDiv">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required />
+            </div>
+            <div class="inputDiv">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="inputDiv">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <div class="inputDiv">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+            </div>
+
+          </fieldset>
+          <button type="submit" class="bigBtn ">Sign Up</button>
+
+      </div>
       </form>
     </main>
   </body>

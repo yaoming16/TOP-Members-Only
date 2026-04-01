@@ -37,6 +37,10 @@ body {
   color: var(--textPrimary);
 }
 
+main {
+  padding: 2rem;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: bold;
