@@ -21,6 +21,7 @@
   border: 1px solid var(--cardBorder);
   border-radius: 4px;
   background-color: var(--cardBg);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .inputDiv {

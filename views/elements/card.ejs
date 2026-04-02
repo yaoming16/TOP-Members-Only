@@ -2,23 +2,27 @@
 %>
 
 <article>
-  <h2><%= message.title %></h2>
-  <p><%= message.message %></p>
+  <div class="titleDiv">
+    <h2><%= message.title %></h2>
+    <% if (user && user.admin) { %>
+    <button class="deleteBtn" id="<%= message.id %>">Delete</button>
+    <% } %>
+  </div>
+  <p class="message"><%= message.message %></p>
   <% if (user) { %>
   <% if (user.member) { %>
-  <p><%= new Date(message.creation_date).toLocaleTimeString() %></p>
-  <p><%= `${message.name} ${message.last_name}` %></p>
-  <% if (message.member) { %>
-  <p>Member</p>
-  <%  } else if (message.admin) { %>
-  <p>Admin</p>
-  <% }  else { %>
-  <p>User</p>
-  <%}%>
-  <% } %>
-  <% if (user.admin) { %>
-  <button class="deleteBtn" id="<%= message.id %>">Delete</button>
-  <% } %>
+  <p class="date">Created <%= new Date(message.creation_date).toLocaleDateString() %></p>
+  <div class="nameDiv">
+    <p class="name"><%= `${message.name} ${message.last_name}` %></p>
+    <% if (message.member) { %>
+    <p class="status">Member</p>
+    <%  } else if (message.admin) { %>
+    <p class="status">Admin</p>
+    <% }  else { %>
+    <p class="status">User</p>
+    <%}%>
+    <% } %>
+  </div>
 
   <%}%>
 </article>

@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Satisfy&display=swap");
+
 :root {
   --background: #fdfaf6;
   --surface: #e6eed6;
   --surfaceAlt: #cbe0d3;
 
   --textPrimary: #3a403d;
-  --textMuted: #727a76;
+  --textMuted: #5d6963;
   --heading: #2c5545;
 
   --navBg: #799a9c;
@@ -20,8 +22,14 @@
 
   --cardBg: #ffffff;
   --cardBorder: #d5e5e3;
-  --accent: #d96c75;
-  --accentSoft: #f5d3d6;
+
+  --fontTitle: "Baloo 2", "Comic Sans MS", cursive;
+  --fontBody: "Nunito", "Segoe UI", sans-serif;
+  --fontSpecial: "Satisfy", "Segoe Script", cursive;
+
+  --accent: #c84a5a;
+  --accentSoft: #fde7ea;
+  --accentText: #7a2431;
   --highlight: #fefae0;
   --warning: #d95d39;
 }
@@ -30,6 +38,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--fontBody);
 }
 
 body {
@@ -44,7 +53,20 @@ main {
 h1 {
   font-size: 2rem;
   font-weight: bold;
+  font-family: var(--fontTitle);
   color: var(--heading);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: var(--fontTitle);
+  color: var(--heading);
+}
+
+.center {
+  text-align: center;
+  width: 100%;
 }
 
 /* Form elements */
@@ -87,6 +109,7 @@ legend {
   font-size: 1.3rem;
   text-align: center;
   width: 100%;
+  font-family: var(--fontSpecial);
 }
 
 label {
@@ -111,7 +134,7 @@ nav {
   gap: 1rem;
 }
 
-nav ul {
+ul {
   list-style: none;
 }
 
@@ -131,4 +154,8 @@ nav ul li:hover {
   border-radius: 5px;
   background-color: var(--navText);
   color: var(--navBg);
+}
+
+nav h2 {
+  color: var(--navText);
 }

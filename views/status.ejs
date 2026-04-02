@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/form.css">
     <script src="/scripts/status.js" type="module" defer></script>
     <script src="/scripts/logout.js" type="module" defer></script>
     <title>The Latin Quarter - Status</title>
@@ -11,14 +12,18 @@
   <body>
     <%- include("./elements/nav.ejs") %>
     <main>
-      <h1>Join the Club</h1>
-      <form id="statusForm">
-        <div>
-          <label for="passcode">Passcode</label>
-          <input type="text" name="passcode" id="passcode" />
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <div class="container">
+        <h1>Access Status</h1>
+        <p>Enter the member passcode to unlock posting and author/timestamp details.</p>
+        <p>Enter the admin passcode to gain admin access, including message deletion.</p>
+        <form id="statusForm">
+          <div class="inputDiv">
+            <label class="center" for="passcode">Passcode</label>
+            <input type="text" name="passcode" id="passcode" />
+          </div>
+          <button class="bigBtn" type="submit">Submit</button>
+        </form>
+      </div>
     </main>
   </body>
 </html>

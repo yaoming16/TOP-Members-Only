@@ -5,15 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/scripts/logout.js" type="module" defer></script>
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/homepage.css">
     <title>The Latin Quarter</title>
   </head>
-  <%- include("./elements/nav.ejs") %>
   <body>
-    <h1>The Latin Quarter</h1>
-    <% if(locals.currentUser) { %>
-    <p><%= locals.currentUser.email %></p>
-    <%} else {%>
-    <p>log in</p>
-    <% }%>
+    <%- include("./elements/nav.ejs") %>
+    <main class="homePage">
+      <div class="messagesContainer">
+        <h1>The Latin Quarter</h1>
+        <p class="pageSubtitle">A message board with extra access levels for members and admins.</p>
+        <% if(locals.currentUser) { %>
+          
+          <p class="pageStatus">Welcome <span class="names"><%= locals.currentUser.name %> <%= locals.currentUser.last_name %></span></p>
+          <% if (locals.currentUser.admin) { %>
+            <p class="pageIntro">
+              You are an admin. You can post new messages, see author and timestamp details,
+              and remove messages when needed.
+            </p>
+          <% } else if (locals.currentUser.member) { %>
+            <p class="pageIntro">
+              You are a member. You can post new messages and view who wrote each message and when it was posted.
+            </p>
+          <% } else { %>
+            <p class="pageIntro">
+              Your account is active, but you are not a member yet. Enter the member passcode on the Status page
+              to unlock posting and author/timestamp details.
+            </p>
+          <% } %>
+          <%} else {%>
+            <p class="pageIntro">
+              You can read all messages without an account. Create an account to unlock member access with a passcode.
+            </p>
+        <% }%>
+      </div>
+    </main>
   </body>
 </html>

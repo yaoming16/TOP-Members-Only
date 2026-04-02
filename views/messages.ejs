@@ -12,9 +12,18 @@
   <body>
     <%- include("./elements/nav.ejs") %>
     <main>
-      <h1>Members Messages</h1>
+      <h1>Community Messages</h1>
+      <% if (!locals.currentUser) { %>
+      <p>You can read messages, but sign up and become a member to post and view author details.</p>
+      <% } else if (!locals.currentUser.member && !locals.currentUser.admin) { %>
+      <p>You are logged in. Add the member passcode on Status to post and see who wrote each message.</p>
+      <% } else if (locals.currentUser.admin) { %>
+      <p>You are viewing as admin. You can post messages, see full details, and delete messages.</p>
+      <% } else { %>
+      <p>You are viewing as member. You can post messages and see who wrote each message and when.</p>
+      <% } %>
       <% if (locals.currentUser) { %>
-      <button id="addMessageBtn">Add New Message</button>
+      <button id="addMessageBtn" class="newMessageBtn">Add New Message</button>
       <%- include("./elements/addModal.ejs") %>
       <% } %>
       <ul id="messagesContainer">

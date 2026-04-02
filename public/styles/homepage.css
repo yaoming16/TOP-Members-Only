@@ -1,0 +1,23 @@
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageStatus {
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--fontSpecial);
+  margin: 2rem 0 0.5rem 1rem;
+}
+
+.names {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: var(--textMuted);
+  font-family: var(--fontSpecial);
+}
