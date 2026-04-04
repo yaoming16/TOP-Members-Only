@@ -9,12 +9,17 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
 
+const db = require("./db/queries");
+
 const signUpRouter = require("./routers/signUpRouter");
 const loginRouter = require("./routers/loginRouter");
 const messagesRouter = require("./routers/messagesRouter");
 const statusRouter = require("./routers/statusRouter");
 
 const app = express();
+
+const recentMessagesAmount = 3;
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -44,8 +49,9 @@ app.use("/login", loginRouter);
 app.use("/messages", messagesRouter);
 app.use("/status", statusRouter);
 
-app.get("/", (req, res) => {
-  res.render("index");
+app.get("/", async (req, res) => {
+  const messages = await db.getLatestMessages(recentMessagesAmount);
+  res.render("index", { messages: messages });
 });
 
 app.post("/logout", (req, res, next) => {

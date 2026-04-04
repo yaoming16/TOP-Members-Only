@@ -68,7 +68,33 @@ async function getAllMessages() {
     u.admin
   FROM messages AS m
   INNER JOIN users_messages AS um ON um.message_id = m.id 
-  INNER JOIN users AS u ON u.id = um.user_id;`);
+  INNER JOIN users AS u ON u.id = um.user_id;
+  `);
+  return rows;
+}
+
+async function getLatestMessages(limit) {
+  const { rows } = await pool.query(
+    `
+  SELECT
+    m.id,
+    m.title,
+    m.creation_date,
+    m.message,
+    u.name,
+    u.last_name,
+    u.email,
+    u.password,
+    u.member,
+    u.admin
+  FROM messages AS m
+  INNER JOIN users_messages AS um ON um.message_id = m.id 
+  INNER JOIN users AS u ON u.id = um.user_id
+  ORDER BY creation_date DESC
+  LIMIT $1;
+  `,
+    [limit],
+  );
   return rows;
 }
 
@@ -123,4 +149,5 @@ module.exports = {
   updateMemberStatus,
   deleteMessage,
   createMessage,
+  getLatestMessages,
 };

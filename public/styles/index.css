@@ -64,6 +64,13 @@ h2 {
   color: var(--heading);
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: var(--fontTitle);
+  color: var(--heading);
+}
+
 .center {
   text-align: center;
   width: 100%;
@@ -125,6 +132,11 @@ nav {
   padding: 0.5rem 0.7rem;
 }
 
+.navTitle {
+  font-family: var(--fontSpecial);
+  font-size: 1.8rem;
+}
+
 .navContainer {
   display: flex;
   flex-wrap: wrap;
@@ -145,6 +157,9 @@ a {
 }
 
 nav ul li {
+  font-size: 1.2rem;
+  font-family: var(--fontTitle);
+  font-weight: 500;
   padding: 0.5rem 0.7rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;

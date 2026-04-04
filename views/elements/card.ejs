@@ -4,19 +4,21 @@
 <article>
   <div class="titleDiv">
     <h2><%= message.title %></h2>
-    <% if (user && user.admin) { %>
+    <% if (user && user.admin && !index) { %>
     <button class="deleteBtn" id="<%= message.id %>">Delete</button>
     <% } %>
   </div>
   <p class="message"><%= message.message %></p>
   <% if (user) { %>
   <% if (user.member) { %>
-  <p class="date">Created <%= new Date(message.creation_date).toLocaleDateString() %></p>
+  <p class="date">
+    Created <%= new Date(message.creation_date).toLocaleDateString() %>
+  </p>
   <div class="nameDiv">
     <p class="name"><%= `${message.name} ${message.last_name}` %></p>
-    <% if (message.member) { %>
+    <% if (message.member && !message.admin) { %>
     <p class="status">Member</p>
-    <%  } else if (message.admin) { %>
+    <%  } else if (message.admin && message.member) { %>
     <p class="status">Admin</p>
     <% }  else { %>
     <p class="status">User</p>

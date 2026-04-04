@@ -1,4 +1,4 @@
-.messagesContainer {
+.infoContainer {
   display: flex;
   flex-direction: column;
 }
@@ -16,8 +16,56 @@
   font-size: 1.5rem;
 }
 
+.mainPageTitle {
+  animation: appearFromRight 1s ease-out forwards;
+}
+
 .pageSubtitle {
   font-size: 1.2rem;
   color: var(--textMuted);
   font-family: var(--fontSpecial);
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.secInfo {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 2s;
+}
+
+.recentTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  opacity: 0;
+  animation: appearFromRight 1s ease-out forwards;
+  animation-delay: 3s;
+}
+
+.recentMessagesContainer {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 4s;
+}
+
+@keyframes appearFromRight {
+  from {
+    transform: translateX(-100vw);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
