@@ -4,11 +4,13 @@
       <legend>Add New Message</legend>
       <div class="inputDiv">
         <label for="title"> Title </label>
-        <input type="text" name="title" id="title" required />
+        <input type="text" name="title" id="title" />
+        <p id="titleError" class="errorMsg"></p>
       </div>
       <div class="inputDiv">
         <label for="message"> Message </label>
-        <textarea name="message" id="message" required></textarea>
+        <textarea name="message" id="message"></textarea>
+        <p id="messageError" class="errorMsg"></p>
       </div>
     </fieldset>
     <div class="btnDiv">

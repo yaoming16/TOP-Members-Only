@@ -15,8 +15,6 @@ form.addEventListener("submit", async (e) => {
   passwordInput.classList.remove("errorInput");
 
   const errors = await sendFormData(e, "/login", "POST", "/");
-  console.log(errors);
-
   if (errors) {
     for (let e of errors) {
       if (e.path === "email" || e.msg === "Invalid email") {
