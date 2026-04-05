@@ -20,9 +20,20 @@ async function postLogin(req, res, next) {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      const errorMessage = info ? info.message : "Invalid credentials";
+      return res.status(401).json({ errors: [{ msg: errorMessage }] });
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      return res.status(200).json({ message: "Login successful" });
+    });
   })(req, res, next);
 }
 

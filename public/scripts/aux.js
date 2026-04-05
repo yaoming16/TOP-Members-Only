@@ -2,7 +2,10 @@ export async function sendFormData(event, fetchUrl, method, redirectUrl) {
   const formData = new FormData(event.target);
   const body = new URLSearchParams(formData);
 
-  await customFetch(fetchUrl, method, redirectUrl, body);
+  const response = await customFetch(fetchUrl, method, redirectUrl, body);
+  if (response.errors) {
+    return response.errors;
+  }
 }
 
 export async function customFetch(fetchUrl, method, redirectUrl, body = null) {
@@ -19,9 +22,10 @@ export async function customFetch(fetchUrl, method, redirectUrl, body = null) {
       window.location.href = redirectUrl;
     } else {
       const errorData = await response.json();
-      console.error("Error:", errorData);
+      return errorData;
     }
   } catch (error) {
     console.error("Error:", error);
+    return error;
   }
 }

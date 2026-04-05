@@ -45,3 +45,14 @@
   border-color: var(--mainBtnHover);
   transform: scale(1.05);
 }
+
+.errorMsg {
+  color: var(--warning);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.errorInput,
+.errorTextarea {
+  border-color: var(--warning);
+}

@@ -14,12 +14,12 @@ function localStrategy() {
       try {
         const user = await getUserByUsername(email);
         if (!user) {
-          return done(null, false, { message: "Incorrect email" });
+          return done(null, false, { message: "Invalid email" });
         }
         const match = await bcrypt.compare(password, user.password);
         if (!match) {
           // passwords do not match!
-          return done(null, false, { message: "Incorrect password" });
+          return done(null, false, { message: "Invalid password" });
         }
         return done(null, user);
       } catch (err) {
