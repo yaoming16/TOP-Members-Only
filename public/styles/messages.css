@@ -76,3 +76,61 @@ article:hover {
   overflow-wrap: break-word;
   word-break: normal;
 }
+
+dialog {
+  margin: auto;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: var(--secondaryCardBg);
+  border: 1px solid var(--secondaryCardBorder);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+}
+
+#cancelBtn {
+  background-color: var(--warning);
+  color: var(--highlight);
+  transition: all 0.3s ease-in-out;
+}
+
+#cancelBtn:hover {
+  background-color: var(--warningHover);
+}
+
+#cancelBtn:focus {
+  outline: 2px solid var(--warningHover);
+  outline-offset: 2px;
+}
+
+#addMessageBtn {
+  background-color: var(--secondaryBtn);
+  color: var(--mainBtnText);
+  transition: all 0.3s ease-in-out;
+}
+
+#addMessageBtn:hover {
+  background-color: var(--secondaryBtnHover);
+}
+
+#addMessageBtn:focus {
+  outline: 2px solid var(--secondaryBtnHover);
+  outline-offset: 2px;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}

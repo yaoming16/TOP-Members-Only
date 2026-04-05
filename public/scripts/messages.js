@@ -13,15 +13,21 @@ const addModal = document.getElementById("addModal");
 const cancelBtn = document.getElementById("cancelBtn");
 const addForm = document.getElementById("addForm");
 
-addMessageBtn.addEventListener("click", () => {
-  addModal.showModal();
-});
+if (addMessageBtn) {
+  addMessageBtn.addEventListener("click", () => {
+    addModal.showModal();
+  });
+}
 
-cancelBtn.addEventListener("click", () => {
-  addModal.close();
-});
+if (addModal) {
+  cancelBtn.addEventListener("click", () => {
+    addModal.close();
+  });
+}
 
-addForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  await sendFormData(e, "/messages/add", "POST", "/messages");
-});
+if (addForm) {
+  addForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await sendFormData(e, "/messages/add", "POST", "/messages");
+  });
+}

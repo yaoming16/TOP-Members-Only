@@ -1,16 +1,19 @@
 <dialog id="addModal">
   <form id="addForm">
-    <div>
-      <label for="title"> Title </label>
-      <input type="text" name="title" id="title" required />
-    </div>
-    <div>
-      <label for="message"> Message </label>
-      <textarea name="message" id="message" required></textarea>
-    </div>
-    <div>
+    <fieldset>
+      <legend>Add New Message</legend>
+      <div class="inputDiv">
+        <label for="title"> Title </label>
+        <input type="text" name="title" id="title" required />
+      </div>
+      <div class="inputDiv">
+        <label for="message"> Message </label>
+        <textarea name="message" id="message" required></textarea>
+      </div>
+    </fieldset>
+    <div class="btnDiv">
       <button id="cancelBtn">Cancel</button>
-      <button type="submit">Add Message</button>
+      <button type="submit" id="addMessageBtn">Add Message</button>
     </div>
   </form>
 </dialog>
