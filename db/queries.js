@@ -1,4 +1,3 @@
-const { decodeBase64 } = require("bcryptjs");
 const pool = require("../db/pool");
 
 async function getUserByUsername(email) {
