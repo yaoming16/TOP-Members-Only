@@ -125,17 +125,17 @@ textarea {
   outline-offset: 2px;
 }
 
-#addMessageBtn {
+#addMessageBtn, #submitMessageBtn {
   background-color: var(--secondaryBtn);
   color: var(--mainBtnText);
   transition: all 0.3s ease-in-out;
 }
 
-#addMessageBtn:hover {
+#addMessageBtn:hover, #submitMessageBtn:hover {
   background-color: var(--secondaryBtnHover);
 }
 
-#addMessageBtn:focus {
+#addMessageBtn:focus, #submitMessageBtn:focus {
   outline: 2px solid var(--secondaryBtnHover);
   outline-offset: 2px;
 }

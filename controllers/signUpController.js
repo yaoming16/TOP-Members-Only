@@ -24,9 +24,10 @@ async function postSignUp(req, res, next) {
   }
 
   // We will check if user already exists
-  const alreadyExists = db.checkIfEmailExists(req.body.email);
-  if (alreadyExists) {
-    res
+  const alreadyExists = await db.checkIfEmailExists(req.body.email);
+  console.log(alreadyExists)
+  if (alreadyExists.exists) {
+    return res
       .status(409)
       .json({
         errors: [

@@ -47,9 +47,13 @@
 body {
   background-color: var(--background);
   color: var(--textPrimary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
+  flex: 1;
   padding: 2rem;
 }
 
@@ -196,4 +200,68 @@ nav ul li:hover {
 
 nav h2 {
   color: var(--navText);
+}
+
+/* footer */
+
+.footer {
+  margin-top: 2.5rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--cardBorder);
+  background: linear-gradient(to right, var(--surface), var(--surfaceAlt));
+  color: var(--textMuted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footerSep {
+  color: var(--accentText);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.footer a {
+  color: var(--heading);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
+.footer a:focus {
+  outline: 2px solid var(--mainBtn);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    text-align: center;
+    gap: 0.4rem;
+    padding: 1rem 0.9rem;
+    flex-direction: column;
+  }
+
+  .footerSep {
+    display: none;
+  }
 }

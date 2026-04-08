@@ -65,7 +65,7 @@ app.post("/logout", (req, res, next) => {
   });
 });
 
-app.listen(3000, (error) => {
+app.listen(process.env.PORT, (error) => {
   if (error) {
     throw error;
   }
