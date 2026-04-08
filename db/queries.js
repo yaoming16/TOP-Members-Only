@@ -143,7 +143,11 @@ async function deleteMessage(messageID) {
 }
 
 async function checkIfEmailExists(email) {
-  const {rows} = await db.query(`SELECT EXISTS (SELECT 1 FROM users WHERE email = 'target_value' LIMIT 1);`);
+  const { rows } = await db.query(
+    `SELECT EXISTS (SELECT 1 FROM users WHERE email = $1 LIMIT 1);`,
+    [email],
+  );
+  return rows[0];
 }
 
 module.exports = {
@@ -155,4 +159,5 @@ module.exports = {
   deleteMessage,
   createMessage,
   getLatestMessages,
+  checkIfEmailExists,
 };

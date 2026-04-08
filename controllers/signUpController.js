@@ -23,6 +23,21 @@ async function postSignUp(req, res, next) {
     return res.status(400).json({ errors: errors.array() });
   }
 
+  // We will check if user already exists
+  const alreadyExists = db.checkIfEmailExists(req.body.email);
+  if (alreadyExists) {
+    res
+      .status(409)
+      .json({
+        errors: [
+          {
+            msg: "An account already exist with this email, log in or use a different one",
+            path: "email",
+          },
+        ],
+      });
+  }
+
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const { name, lastName, email } = req.body;
