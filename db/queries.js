@@ -143,7 +143,7 @@ async function deleteMessage(messageID) {
 }
 
 async function checkIfEmailExists(email) {
-  const { rows } = await db.query(
+  const { rows } = await pool.query(
     `SELECT EXISTS (SELECT 1 FROM users WHERE email = $1 LIMIT 1);`,
     [email],
   );
