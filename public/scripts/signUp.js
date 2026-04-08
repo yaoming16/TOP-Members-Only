@@ -1,4 +1,4 @@
-import { sendFormData, addError } from "./aux.js";
+import { sendFormData, addError, clearError } from "./aux.js";
 
 const form = document.getElementById("signup-form");
 
@@ -52,12 +52,8 @@ function removeAllErrors() {
     emailError,
     passwordError,
     confirmPasswordError,
-  ].forEach((err) => {
-    err.textContent = "";
-  });
-
-  const allInputs = [name, lastName, email, password, confirmPassword];
-  allInputs.forEach((input) => {
-    input.classList.remove("errorInput");
+  ].forEach((err, index) => {
+    const allInputs = [name, lastName, email, password, confirmPassword];
+    clearError(allInputs[index], err);
   });
 }

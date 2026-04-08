@@ -12,7 +12,10 @@
   <% if (user) { %>
   <% if (user.member) { %>
   <p class="date">
-    Created <%= new Date(message.creation_date).toLocaleDateString() %>
+    Created
+    <time datetime="<%= new Date(message.creation_date).toISOString() %>">
+      <%= new Date(message.creation_date).toLocaleDateString() %>
+    </time>
   </p>
   <div class="nameDiv">
     <p class="name"><%= `${message.name} ${message.last_name}` %></p>

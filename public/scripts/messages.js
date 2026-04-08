@@ -1,4 +1,4 @@
-import { customFetch, sendFormData, addError } from "./aux.js";
+import { customFetch, sendFormData, addError, clearError } from "./aux.js";
 
 const messagesContainer = document.getElementById("messagesContainer");
 
@@ -18,21 +18,30 @@ const title = document.getElementById("title");
 const titleError = document.getElementById("titleError");
 const messageError = document.getElementById("messageError");
 
+let lastFocusedElement = null;
+
 if (addMessageBtn) {
   addMessageBtn.addEventListener("click", () => {
+    lastFocusedElement = document.activeElement;
     addModal.showModal();
+    title.focus();
   });
 }
 
 if (addModal) {
+  addModal.addEventListener("close", () => {
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
+  });
+
   cancelBtn.addEventListener("click", () => {
-    [message, title].forEach((e) => {
-      e.value = "";
-      e.classList.remove("errorInput");
+    [message, title].forEach((field) => {
+      field.value = "";
     });
 
-    titleError.textContent = "";
-    messageError.textContent = "";
+    clearError(title, titleError);
+    clearError(message, messageError);
 
     addModal.close();
   });
@@ -42,10 +51,8 @@ if (addForm) {
   addForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    message.classList.remove("errorInput");
-    title.classList.remove("errorInput");
-    titleError.textContent = "";
-    messageError.textContent = "";
+    clearError(title, titleError);
+    clearError(message, messageError);
 
     const errors = await sendFormData(e, "/messages/add", "POST", "/messages");
 

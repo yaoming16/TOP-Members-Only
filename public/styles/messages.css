@@ -3,20 +3,28 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: min(100%, 56rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+#messagesContainer li {
+  width: 100%;
+  display: flex;
 }
 
 article {
   display: flex;
   flex-direction: column;
-  max-width: 800px;
+  width: 100%;
   gap: 1rem;
   border: 1px solid var(--cardBorder);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1rem clamp(0.9rem, 2vw, 1.25rem);
   background-color: var(--cardBg);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-left: auto;
-  margin-right: auto;
   transition: all 0.3s ease-in-out;
 }
 
@@ -48,6 +56,8 @@ article:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .name {
@@ -75,6 +85,7 @@ article:hover {
   font-size: 1.1rem;
   overflow-wrap: break-word;
   word-break: normal;
+  line-height: 1.55;
 }
 
 dialog {
@@ -133,4 +144,39 @@ textarea {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  #messagesContainer {
+    margin-top: 1.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  article {
+    gap: 0.85rem;
+    padding: 0.9rem;
+  }
+
+  .titleDiv {
+    align-items: flex-start;
+  }
+
+  .nameDiv {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .status {
+    font-size: 0.9rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  article:hover {
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 }

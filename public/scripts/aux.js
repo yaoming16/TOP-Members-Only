@@ -36,4 +36,11 @@ export async function customFetch(fetchUrl, method, redirectUrl, body = null) {
 export function addError(input, errorContainer, msg) {
   errorContainer.textContent = msg;
   input.classList.add("errorInput");
+  input.setAttribute("aria-invalid", "true");
+}
+
+export function clearError(input, errorContainer) {
+  errorContainer.textContent = "";
+  input.classList.remove("errorInput");
+  input.removeAttribute("aria-invalid");
 }

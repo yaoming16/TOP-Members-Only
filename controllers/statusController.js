@@ -25,7 +25,7 @@ async function updateStatus(req, res) {
   if (!req.user) {
     return res
       .status(401)
-      .json({ errors: "Please log in before changing status" });
+      .json({errors:[{ msg: "Please log in before changing status", path: "passcode" }]});
   }
 
   //Input validation
@@ -40,10 +40,10 @@ async function updateStatus(req, res) {
   if (passcodeInput === ADMINPASSCODE && !req.user.member) {
     return res
       .status(403)
-      .json({ errors: "You can't be an Administrator before being a member" });
+      .json({ errors: [{msg:"You can't be an Administrator before being a member", path: "passcode"}] });
   }
 
-  //If we are here column should be ADMINPASSCODE or MEMBERPASSCODE. If it wasnt an error would be thrown above
+  //If we are here column should be ADMINPASSCODE or MEMBERPASSCODE. If it wasnt an error would have been thrown above
   const column = passcodeInput === ADMINPASSCODE ? "admin" : "member";
   await db.updateMemberStatus(column, true, req.user.email);
 

@@ -1,21 +1,21 @@
-<dialog id="addModal">
+<dialog id="addModal" aria-modal="true" aria-labelledby="addModalTitle">
   <form id="addForm">
     <fieldset>
-      <legend>Add New Message</legend>
+      <legend id="addModalTitle">Add New Message</legend>
       <div class="inputDiv">
         <label for="title"> Title </label>
-        <input type="text" name="title" id="title" />
-        <p id="titleError" class="errorMsg"></p>
+        <input type="text" name="title" id="title" aria-describedby="titleError" />
+        <p id="titleError" class="errorMsg" aria-live="polite"></p>
       </div>
       <div class="inputDiv">
         <label for="message"> Message </label>
-        <textarea name="message" id="message"></textarea>
-        <p id="messageError" class="errorMsg"></p>
+        <textarea name="message" id="message" aria-describedby="messageError"></textarea>
+        <p id="messageError" class="errorMsg" aria-live="polite"></p>
       </div>
     </fieldset>
     <div class="btnDiv">
-      <button id="cancelBtn">Cancel</button>
-      <button type="submit" id="addMessageBtn">Add Message</button>
+      <button type="button" id="cancelBtn">Cancel</button>
+      <button type="submit" id="submitMessageBtn">Add Message</button>
     </div>
   </form>
 </dialog>

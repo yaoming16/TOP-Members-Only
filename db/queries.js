@@ -1,3 +1,4 @@
+const { decodeBase64 } = require("bcryptjs");
 const pool = require("../db/pool");
 
 async function getUserByUsername(email) {
@@ -139,6 +140,10 @@ async function deleteMessage(messageID) {
   } finally {
     client.release();
   }
+}
+
+async function checkIfEmailExists(email) {
+  const {rows} = await db.query(`SELECT EXISTS (SELECT 1 FROM users WHERE email = 'target_value' LIMIT 1);`);
 }
 
 module.exports = {

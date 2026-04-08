@@ -19,23 +19,43 @@
             <legend>Sign Up</legend>
             <div class="inputDiv">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name"  />
-              <p id="nameError" class="errorMsg"></p>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                aria-describedby="nameError"
+              />
+              <p id="nameError" class="errorMsg" aria-live="polite"></p>
             </div>
             <div class="inputDiv">
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName"  />
-              <p id="lastNameError" class="errorMsg"></p>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                aria-describedby="lastNameError"
+              />
+              <p id="lastNameError" class="errorMsg" aria-live="polite"></p>
             </div>
             <div class="inputDiv">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email"  />
-              <p id="emailError" class="errorMsg"></p>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                aria-describedby="emailError"
+              />
+              <p id="emailError" class="errorMsg" aria-live="polite"></p>
             </div>
             <div class="inputDiv">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password"  />
-              <p id="passwordError" class="errorMsg"></p>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                aria-describedby="passwordError"
+              />
+              <p id="passwordError" class="errorMsg" aria-live="polite"></p>
             </div>
             <div class="inputDiv">
               <label for="confirmPassword">Confirm Password</label>
@@ -43,8 +63,9 @@
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
+                aria-describedby="confirmPasswordError"
               />
-              <p id="confirmPasswordError" class="errorMsg"></p>
+              <p id="confirmPasswordError" class="errorMsg" aria-live="polite"></p>
             </div>
           </fieldset>
           <button type="submit" class="bigBtn ">Sign Up</button>
