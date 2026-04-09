@@ -90,7 +90,7 @@ async function getLatestMessages(limit) {
   FROM messages AS m
   INNER JOIN users_messages AS um ON um.message_id = m.id 
   INNER JOIN users AS u ON u.id = um.user_id
-  ORDER BY creation_date DESC
+  ORDER BY creation_date DESC, m.id DESC
   LIMIT $1;
   `,
     [limit],
