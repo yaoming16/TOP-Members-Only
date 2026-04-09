@@ -1,6 +1,6 @@
 # The Latin Quarter (Members-Only Message Board)
 
-**The Latin Quarter** is a members-only message board application built as part of The Odin Project's Node.js curriculum. It demonstrates user authentication, role-based access control, and real-time messaging functionality.
+**The Latin Quarter** is a members-only message board application built as part of The Odin Project's Node.js curriculum. It demonstrates user authentication, role-based access control, and messaging functionality.
 
 - **Live Page:** [https://the-latin-quarter.onrender.com](https://the-latin-quarter.onrender.com)
 
